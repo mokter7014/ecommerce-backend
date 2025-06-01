@@ -1,0 +1,56 @@
+// ✅ Optimized NestJS Project Structure for Auth & Admin System
+
+src/
+├── auth/                        # 🔐 Authentication Module
+│   ├── dto/
+│   │   ├── create-admin.dto.ts
+│   │   └── login.dto.ts
+│   ├── entities/
+│   │   └── admin.entity.ts
+│   ├── guards/
+│   │   └── jwt-auth.guard.ts
+│   ├── strategies/
+│   │   └── jwt.strategy.ts
+│   ├── auth.controller.ts
+│   ├── auth.module.ts
+│   └── auth.service.ts
+│
+├── user/                        # 👥 (Optional) Separate user module
+│   └── user.module.ts           # Future use (if user role different than admin)
+│
+├── data/                        # 📦 Feature module (example: public/private API)
+│   ├── data.controller.ts
+│   ├── data.module.ts
+│   └── data.service.ts
+│
+├── common/                      # 🧩 Common reusable utilities
+│   └── decorators/
+│       └── roles.decorator.ts   # For role-based access (optional)
+│
+├── config/                      # ⚙️ Configuration (e.g. JWT, TypeORM)
+│   ├── typeorm.config.ts
+│   └── jwt.config.ts
+│
+├── app.controller.ts
+├── app.module.ts
+├── app.service.ts
+└── main.ts                      # 🚀 Application entry
+
+
+// ✅ Tips:
+// - Group related files (dto, entity, strategy, guard) by domain/module
+// - Use 'guards' and 'strategies' folders for separation
+// - Keep future scalability in mind (admin/user separation, RBAC)
+// - Use config module for .env driven secrets like JWT keys
+
+// ✅ Example: Clean import
+// import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+
+// ✅ Example: Organized service
+// src/auth/auth.service.ts handles both register() and login()
+
+// 📦 Suggestion: Use ConfigModule to load secrets from .env
+// and keep secretKey out of hardcoded places
+
+// .env
+// JWT_SECRET=yourSecretKey
