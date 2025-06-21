@@ -30,4 +30,5 @@ jobs:
           ftp-username: 'mokter7014@api.zainleatherbd.com'
           ftp-password: 'I{RG!K0CMyYRpdoD'
           local-dir: ./dist # আপনার NestJS project build output directory
-          server-dir: '/home/zainleat/api.zainleatherbd.com' # আপনার CPanel public_html বা target directory
+          server-dir: '/home/zainleat/api.zainleatherbd.com'
+          dry-run: true
