@@ -26,9 +26,13 @@ jobs:
       - name: Deploy to cPanel using FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          ftp-server: 'ftp.zainleatherbd.com'
-          ftp-username: 'mokter7014@api.zainleatherbd.com'
-          ftp-password: 'I{RG!K0CMyYRpdoD'
-          local-dir: ./dist # আপনার NestJS project build output directory
-          server-dir: '/home/zainleat/api.zainleatherbd.com'
-          dry-run: true
+          ftp-server: ${{ secrets.FTP_HOST }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist
+          server-dir: ${{ secrets.FTP_PATH }}
+          # ftp-server: 'ftp.zainleatherbd.com'
+          # ftp-username: 'mokter7014@api.zainleatherbd.com'
+          # ftp-password: 'I{RG!K0CMyYRpdoD'
+          # local-dir: ./dist # আপনার NestJS project build output directory
+          # server-dir: '/home/zainleat/api.zainleatherbd.com' # আপনার CPanel public_html বা target directory
