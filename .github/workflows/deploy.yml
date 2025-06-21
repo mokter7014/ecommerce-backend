@@ -1,0 +1,33 @@
+name: Deploy NestJS to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main # যে branch থেকে deploy করতে চান (এখানে main branch ব্যবহার করা হয়েছে)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.19.2' # আপনার Node.js ভার্সন সেট করুন
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm run build  # build NestJS project
+
+      - name: Deploy to cPanel using FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          ftp-server: 'ftp.zainleatherbd.com'
+          ftp-username: 'mokter7014@api.zainleatherbd.com'
+          ftp-password: 'I{RG!K0CMyYRpdoD'
+          local-dir: ./dist # আপনার NestJS project build output directory
+          server-dir: '/home/zainleat/api.zainleatherbd.com' # আপনার CPanel public_html বা target directory
