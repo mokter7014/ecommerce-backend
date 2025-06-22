@@ -27,7 +27,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ${{ secrets.FTP_HOST }} # Correct input name for the FTP server
-          username: ${{ secrets.FTP_PASSWORD }} # Correct input name for the FTP username
+          username: ${{ secrets.FTP_USERNAME }} # Correct input name for the FTP username
           password: ${{ secrets.FTP_PASSWORD }} # Correct input name for the FTP password
           server-dir: ${{ secrets.FTP_PATH }}/ # Make sure this ends with a trailing slash
           local-dir: ./dist/ # Ensure this ends with a trailing slash (folder path)
