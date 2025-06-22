@@ -29,6 +29,6 @@ jobs:
           server: ${{ secrets.FTP_HOST }} # Correct input name for the FTP server
           username: ${{ secrets.FTP_PASSWORD }} # Correct input name for the FTP username
           password: ${{ secrets.FTP_PASSWORD }} # Correct input name for the FTP password
-          server-dir: ${{ secrets.FTP_PATH }} # Correct input name for the server directory
+          server-dir: ${{ secrets.FTP_PATH }}/ # Make sure this ends with a trailing slash
           local-dir: ./dist/ # Ensure this ends with a trailing slash (folder path)
           port: ${{ secrets.FTP_PORT }} # Optional: Use custom port, default is 21
