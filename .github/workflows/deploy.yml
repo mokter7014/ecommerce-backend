@@ -29,8 +29,8 @@ jobs:
           ftp-server: ${{ secrets.FTP_HOST }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
           server-dir: ${{ secrets.FTP_PATH }}
+          local-dir: ./dist
           # ftp-server: 'ftp.zainleatherbd.com'
           # ftp-username: 'mokter7014@api.zainleatherbd.com'
           # ftp-password: 'I{RG!K0CMyYRpdoD'
