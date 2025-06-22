@@ -26,9 +26,9 @@ jobs:
       - name: Deploy to cPanel using FTP
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ${{ secrets.FTP_HOST }} # Correct input name for the FTP server
-          username: ${{ secrets.FTP_USERNAME }} # Correct input name for the FTP username
-          password: ${{ secrets.FTP_PASSWORD }} # Correct input name for the FTP password
-          server-dir: ${{ secrets.FTP_PATH }}/ # Make sure this ends with a trailing slash
-          local-dir: ./dist/ # Ensure this ends with a trailing slash (folder path)
-          port: ${{ secrets.FTP_PORT }} # Optional: Use custom port, default is 21
+          server: ${{ secrets.FTP_HOST }} # FTP server
+          username: ${{ secrets.FTP_USERNAME }} # FTP username
+          password: ${{ secrets.FTP_PASSWORD }} # FTP password
+          server-dir: ${{ secrets.FTP_PATH }}/ # Target server directory, should end with '/'
+          local-dir: ./dist/ # Local directory where the build files are located
+          port: ${{ secrets.FTP_PORT }} # Optional: Custom FTP port, default is 21
